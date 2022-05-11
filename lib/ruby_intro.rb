@@ -3,15 +3,31 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  res = 0;
+  arr.each { |a| res+=a }
+  res
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr.size == 0
+    return 0
+  elsif arr.size == 1
+    return arr[0]
+  else
+    return arr.sort[-1] + arr.sort[-2]
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  nums = Hash.new
+  res = false
+  arr.each do |a|
+    if nums.has_key? n-a
+      res = true
+    end
+    nums[a] = 1
+  end
+  res
 end
 
 # Part 2
