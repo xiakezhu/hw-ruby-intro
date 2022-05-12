@@ -47,5 +47,41 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize (isbn, price)
+    if isbn.length == 0 or /\A0.?/.match(isbn)!=nil
+      raise ArgumentError.new()
+    end
+    if price <= 0
+      raise ArgumentError.new()
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def price
+    @price
+  end
+
+  def isbn=(new_isbn)
+    if new_isbn.length == 0 or /\A0.?/.match(new_isbn)!=nil
+      raise ArgumentError.new()
+    end
+    @isbn = new_isbn
+  end
+
+  def price=(new_price)
+    if new_price <= 0
+      raise ArgumentError.new()
+    end
+    @price = new_price
+  end
+
+  def price_as_string
+    "$%0.2f" % @price
+  end
+
 end
